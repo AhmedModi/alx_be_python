@@ -17,9 +17,9 @@ if __name__ == "__main__":
         amount = None
 
     if command == "deposit" and amount is not None:
-        account.deposit(amount)  # This already prints
+        account.deposit(amount)  # Already prints
     elif command == "withdraw" and amount is not None:
-        account.withdraw(amount)  # This already prints
+        account.withdraw(amount)  # Already prints
     elif command == "display":
         account.display_balance()
     else:

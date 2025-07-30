@@ -2,14 +2,13 @@ import sys
 from bank_account import BankAccount
 
 if __name__ == "__main__":
-    account = BankAccount(250)
+    account = BankAccount(100)
 
-    if len(sys.argv) == 1:
-        account.display_balance()
-        sys.exit()
+    if len(sys.argv) < 2:
+        print("Usage: python main-0.py <command>:<amount>")
+        sys.exit(1)
 
     command_input = sys.argv[1]
-
     if ':' in command_input:
         command, value = command_input.split(':')
         amount = float(value)
@@ -19,9 +18,13 @@ if __name__ == "__main__":
 
     if command == "deposit" and amount is not None:
         account.deposit(amount)
+        print(f"Deposited: ${amount:.1f}")
     elif command == "withdraw" and amount is not None:
-        account.withdraw(amount)
-    elif command in ["display", "display_balance"]:
-        account.display_balance()
+        if account.withdraw(amount):
+            print(f'Withdrew: ${amount:.1f}')
+        else:
+            print("Insufficient funds.")
+    elif command == "display":
+        print(account.display_balance())
     else:
         print("Invalid command")

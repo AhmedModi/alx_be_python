@@ -21,7 +21,7 @@ if __name__ == "__main__":
         account.deposit(amount)
     elif command == "withdraw" and amount is not None:
         account.withdraw(amount)
-    elif command == "display":
+    elif command in ["display", "display_balance"]:
         account.display_balance()
     else:
         print("Invalid command")

@@ -1,5 +1,3 @@
-# main-0.py
-
 import sys
 from bank_account import BankAccount
 
@@ -19,13 +17,9 @@ if __name__ == "__main__":
         amount = None
 
     if command == "deposit" and amount is not None:
-        account.deposit(amount)
-        print(f"Deposited {amount}")
+        account.deposit(amount)  # This already prints
     elif command == "withdraw" and amount is not None:
-        if account.withdraw(amount):
-            print(f"Withdrew {amount}")
-        else:
-            print("Insufficient funds")
+        account.withdraw(amount)  # This already prints
     elif command == "display":
         account.display_balance()
     else:

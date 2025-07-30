@@ -17,10 +17,14 @@ if __name__ == "__main__":
         amount = None
 
     if command == "deposit" and amount is not None:
-        account.deposit(amount)  # Already prints
+        account.deposit(amount)
+        print(f"Deposited: ${amount:.1f}")
     elif command == "withdraw" and amount is not None:
-        account.withdraw(amount)  # Already prints
+        if account.withdraw(amount):
+            print(f'Withdrew: ${amount:.1f}')
+        else:
+            print("Insufficient funds.")
     elif command == "display":
-        account.display_balance()
+        print(account.display_balance())
     else:
         print("Invalid command")

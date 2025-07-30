@@ -1,6 +1,10 @@
 import sys
 from bank_account import BankAccount
 
+account = BankAccount(250)
+account.display_balance()  # Should print the balance, not return it
+
+
 if __name__ == "__main__":
     account = BankAccount(100)
 
